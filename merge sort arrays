@@ -1,0 +1,37 @@
+//
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        //create an array to hold the merge result
+        int[] merged =new int[m+n];
+        int index1 =0;//pointer for the nums1
+        int index2=0;//pointer for the nums2
+        int mergeindex=0;//pointer for the merge index
+        //merge while there are elements are elemnts in both nums1 and nums2
+        while(index1 <m && index2<n){
+            if(nums1[index1]<=nums2[index2]){
+                merged[mergeindex]=nums1[index1];
+                index1++;
+            }
+            else{
+                merged[mergeindex]=nums2[index2];
+                index2++;
+            }
+            mergeindex++;
+        }
+        //if someelemnts are remain in the array then we will use this
+        while(index1<m){
+            merged[mergeindex]=nums1[index1];
+            index1++;
+            mergeindex++; 
+        }
+        while(index2<n){
+            merged[mergeindex]=nums2[index2];
+            index2++;
+            mergeindex++;
+        }
+        //copy the merged array back into nums1
+        for(int i=0;i<merged.length;i++){
+            nums1[i]=merged[i];
+        }
+    }
+}
