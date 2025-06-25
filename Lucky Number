@@ -1,0 +1,25 @@
+class Solution {
+    
+    public int findLucky(int[] arr) {
+        //firstly create a Hasnmap
+        HashMap<Integer,Integer> map=new HashMap<>();
+        //lets first chcek the frequency of the numbers
+        
+        for(int a:arr){
+            map.put(a,map.getOrDefault(a,0)+1);
+        
+            
+            
+        }
+        //now to check the lucky integer here
+        int high=-1;
+        
+        for(int key:map.keySet()){
+            if(map.get(key)==key){
+                high=Math.max(high,key) ;
+            }
+        }
+        return high;
+        
+    }
+}
