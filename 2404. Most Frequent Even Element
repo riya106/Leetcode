@@ -1,0 +1,28 @@
+class Solution {
+    public int mostFrequentEven(int[] nums) {
+        HashMap<Integer,Integer> map=new HashMap<>();
+        //first lets check frequency of each number
+        for(int n:nums){
+            //here we check only the frequancy of even number
+            if(n%2==0){
+            map.put(n,map.getOrDefault(n,0)+1);
+            }
+
+        }
+        int maxfreq=-1;
+        int result=-1;
+
+
+        //lets check which one is even and which appear the most
+       for(int key:map.keySet()){
+        int freq=map.get(key);
+        if(freq>maxfreq){
+            maxfreq=freq;
+            result=key;
+        }else if(freq==maxfreq && key<result){
+            result=key;
+        }
+       }
+       return result;
+    }
+}
